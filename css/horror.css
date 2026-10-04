@@ -107,6 +107,21 @@ body.silent .corner {
 
 /* ---- silence stage: almost nothing ----------------------------------- */
 
+body.silence-ui .corner {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1600ms var(--ease);
+}
+
+body.silence-ui .corner.br {
+  opacity: 0.55;
+  pointer-events: auto;
+}
+
+body.silence-ui .stage {
+  padding-bottom: 30vh;
+}
+
 .silence-mark {
   position: fixed;
   left: 50%;

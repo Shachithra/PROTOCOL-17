@@ -350,6 +350,7 @@ button {
 
 .reveal {
   position: absolute;
+  z-index: 34;
   left: 50%;
   top: 44%;
   transform: translate(-50%, -50%);
@@ -577,6 +578,11 @@ body.lights-out .corner.bl,
 body.lights-out .stage {
   opacity: 0;
   transition: opacity 600ms var(--ease);
+}
+
+/* the discreet controls never disappear — the user keeps control */
+body.lights-out .corner.br {
+  opacity: 0.55;
 }
 
 .corner,

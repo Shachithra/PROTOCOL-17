@@ -1,0 +1,13 @@
+{
+  "name": "protocol-17",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dark psychological horror PWA — AI voice edition",
+  "type": "module",
+  "scripts": {
+    "assets": "node tools/gen-assets.mjs",
+    "check": "node tools/check-refs.mjs && node tools/check-sw.mjs",
+    "test:dom": "node tools/dom-smoke.mjs",
+    "serve": "python -m http.server 8123"
+  }
+}

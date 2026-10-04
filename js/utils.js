@@ -61,12 +61,13 @@ export class Scheduler {
 
   // enqueue an async task; it receives a live token check via ctx
   push(fn) {
+    const scheduler = this;
     const myToken = this.token;
     this.chain = this.chain.then(async () => {
       if (myToken !== this.token) return;
       const ctx = {
         get alive() {
-          return myToken === this.token;
+          return myToken === scheduler.token;
         },
         wait: async (ms) => {
           await wait(ms);
@@ -86,10 +87,11 @@ export class Scheduler {
 
   // run immediately, not queued (for reactions)
   run(fn) {
+    const scheduler = this;
     const myToken = this.token;
     const ctx = {
       get alive() {
-        return myToken === myToken;
+        return myToken === scheduler.token;
       },
     };
     return Promise.resolve(fn(ctx)).catch((err) => {
