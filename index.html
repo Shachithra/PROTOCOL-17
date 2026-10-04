@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Protocol 17</title>
+    <meta name="description" content="A single-page psychological experiment." />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/typography.css" />
+    <link rel="stylesheet" href="./css/horror.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div id="grain" aria-hidden="true"></div>
+    <div id="scanlines" aria-hidden="true"></div>
+    <div id="dirty-frame" aria-hidden="true"></div>
+    <div id="cursor-trail-layer" aria-hidden="true"></div>
+    <div id="flash-frame" aria-hidden="true"></div>
+    <div id="curtain" aria-hidden="true"></div>
+
+    <div class="frame" id="frame">
+      <header class="corner tl" aria-label="Title">
+        <div class="title-mark" id="title-mark">PROTOCOL 17</div>
+        <div class="session-mark" id="session-mark">SESSION 001</div>
+      </header>
+
+      <aside class="corner tr" aria-label="System state">
+        <div class="micro dimmer" id="system-label">SYSTEM</div>
+        <div class="meter" id="meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progress">
+          <div class="meter-row">
+            <span class="dimmer" id="meter-key">INTEGRITY</span>
+            <span class="meter-value" id="meter-value">0%</span>
+          </div>
+          <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+        </div>
+      </aside>
+
+      <aside class="corner bl" aria-label="Status">
+        <span class="status-line"
+          ><span class="status-key">STATUS</span>
+          <span id="status-value">SESSION ACTIVE</span></span
+        >
+        <span class="status-line"
+          ><span class="status-key">VOICE&nbsp;</span>
+          <span id="voice-status">OFFLINE</span></span
+        >
+        <span class="status-line"
+          ><span class="status-key">NETWORK</span>
+          <span id="network-status">IDLE</span></span
+        >
+      </aside>
+
+      <aside class="corner br" aria-label="Controls">
+        <div class="controls">
+          <button
+            class="control"
+            id="ctrl-sound"
+            type="button"
+            aria-pressed="false"
+            title="Toggle sound"
+          >
+            SOUND ON
+          </button>
+          <button
+            class="control"
+            id="ctrl-intensity"
+            type="button"
+            aria-pressed="false"
+            title="Reduce visual intensity"
+          >
+            LOW INTENSITY
+          </button>
+          <button
+            class="control"
+            id="ctrl-reset"
+            type="button"
+            title="Reset local session memory"
+          >
+            RESET
+          </button>
+        </div>
+      </aside>
+
+      <main class="stage" id="stage">
+        <div
+          class="message"
+          id="message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <button
+          class="forbidden"
+          id="forbidden"
+          type="button"
+          aria-label="Do not press"
+        >
+          DO NOT PRESS
+        </button>
+
+        <button class="ghost-btn" id="ghost-btn" type="button" hidden></button>
+      </main>
+    </div>
+
+    <section class="reveal" id="reveal" aria-hidden="true">
+      <div class="rev-head">NETWORK ROUTE ANALYSIS</div>
+      <div class="rev-row" id="rev-country">
+        <span class="rev-key">COUNTRY</span><span class="rev-val">—</span>
+      </div>
+      <div class="rev-row" id="rev-region">
+        <span class="rev-key">REGION</span><span class="rev-val">—</span>
+      </div>
+      <div class="rev-row" id="rev-city">
+        <span class="rev-key">CITY ESTIMATE</span><span class="rev-val">—</span>
+      </div>
+      <div class="rev-note">NETWORK LOCATION — APPROXIMATE</div>
+    </section>
+
+    <pre class="terminal" id="terminal" aria-hidden="true"></pre>
+
+    <div class="silence-mark" id="silence-mark" aria-hidden="true">98%</div>
+
+    <div class="final-line" id="final-line" aria-hidden="true"></div>
+
+    <div class="cursor-word" id="cursor-word" aria-hidden="true"></div>
+
+    <div class="install-line" id="install-line" hidden>
+      <span>RUN LOCALLY</span>
+      <button class="ghost-btn" id="install-btn" type="button">INSTALL</button>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

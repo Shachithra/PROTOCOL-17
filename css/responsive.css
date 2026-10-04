@@ -1,0 +1,90 @@
+/* PROTOCOL 17 — responsive */
+
+@media (max-width: 720px) {
+  :root {
+    --edge: 18px;
+  }
+
+  .corner {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .title-mark {
+    font-size: 12px;
+    letter-spacing: 0.26em;
+  }
+
+  .meter {
+    width: 110px;
+  }
+
+  .stage {
+    padding-bottom: 24vh;
+  }
+
+  .message {
+    font-size: 14px;
+    margin-bottom: 42px;
+    max-width: 84vw;
+  }
+
+  .forbidden {
+    min-width: 190px;
+    min-height: 56px;
+    padding: 16px 26px;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+  }
+
+  .terminal {
+    width: calc(100vw - (var(--edge) * 2));
+    bottom: calc(var(--edge) + 110px + env(safe-area-inset-bottom));
+    font-size: 10px;
+  }
+
+  .reveal {
+    top: 40%;
+    width: calc(100vw - (var(--edge) * 2));
+  }
+
+  .reveal .rev-row {
+    font-size: 11px;
+    gap: 12px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .install-line {
+    bottom: calc(var(--edge) + 150px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-height: 560px) {
+  .stage {
+    padding-bottom: 12vh;
+  }
+
+  .message {
+    margin-bottom: 26px;
+  }
+
+  .terminal {
+    bottom: calc(var(--edge) + 70px + env(safe-area-inset-bottom));
+    max-height: 40vh;
+    overflow: hidden;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .stage {
+    padding-bottom: 8vh;
+  }
+
+  .reveal {
+    top: 46%;
+  }
+}

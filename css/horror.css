@@ -1,0 +1,180 @@
+/* PROTOCOL 17 — horror: stage-specific states */
+
+/* ---- alignment decay ------------------------------------------------- */
+
+body.decay-1 {
+  --offset-x: -2px;
+}
+
+body.decay-2 {
+  --offset-x: -4px;
+  --rotation: -0.15deg;
+}
+
+body.decay-3 {
+  --offset-x: 3px;
+  --offset-y: -2px;
+  --rotation: 0.2deg;
+}
+
+body.decay-chaos {
+  --offset-x: -4px;
+  --offset-y: 2px;
+  --rotation: -0.22deg;
+  --grain-opacity: 0.11;
+  --scan-opacity: 0.2;
+}
+
+body.decay-chaos .corner.tl {
+  transform: translateX(-4px);
+}
+
+body.decay-chaos .message {
+  letter-spacing: 0.07em;
+}
+
+/* everything suddenly perfect again */
+body.perfect {
+  --offset-x: 0px;
+  --offset-y: 0px;
+  --rotation: 0deg;
+  --grain-opacity: 0.04;
+  --scan-opacity: 0.1;
+  transition: none;
+}
+
+body.perfect .frame,
+body.perfect .corner,
+body.perfect .stage {
+  transition: none;
+}
+
+/* ---- horizontal slice displacement ----------------------------------- */
+
+body.slicing .frame {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 18%,
+    0 18%,
+    0 24%,
+    100% 24%,
+    100% 61%,
+    0 61%,
+    0 100%,
+    100% 100%,
+    100% 0
+  );
+}
+
+body.slicing-shift .frame {
+  transform: translate(calc(var(--offset-x) + 7px), var(--offset-y));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 34%,
+    0 34%,
+    0 41%,
+    100% 41%,
+    100% 79%,
+    0 79%,
+    0 100%,
+    100% 100%,
+    100% 0
+  );
+}
+
+/* ---- red becomes meaningful ------------------------------------------ */
+
+body.danger-zone .title-mark {
+  color: var(--danger);
+}
+
+body.danger-zone .meter.hot .meter-value {
+  color: var(--danger);
+}
+
+body.danger-zone .forbidden {
+  border-color: var(--danger-deep);
+}
+
+/* ---- terminal exception styling -------------------------------------- */
+
+body.silent .message,
+body.silent .corner {
+  transition: opacity 1200ms var(--ease);
+}
+
+/* ---- silence stage: almost nothing ----------------------------------- */
+
+.silence-mark {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #3d3b37;
+  opacity: 0;
+  transition: opacity 2s var(--ease);
+  z-index: 35;
+}
+
+.silence-mark.on {
+  opacity: 1;
+}
+
+/* ---- fake ending / clean state --------------------------------------- */
+
+body.clean-run #grain {
+  opacity: 0.03;
+}
+
+body.clean-run #scanlines {
+  opacity: 0.08;
+}
+
+body.clean-run .corner,
+body.clean-run .message {
+  color: var(--text);
+}
+
+/* ---- final reveal type ----------------------------------------------- */
+
+.final-line {
+  position: fixed;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  width: min(620px, 86vw);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 2.1;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  z-index: 38;
+  opacity: 0;
+  transition: opacity 1400ms var(--ease);
+  pointer-events: none;
+}
+
+.final-line.on {
+  opacity: 1;
+}
+
+.final-line .final-quiet {
+  display: block;
+  margin-top: 44px;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ---- return visit ----------------------------------------------------- */
+
+body.return-visit .title-mark::after {
+  content: "";
+}

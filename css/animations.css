@@ -1,0 +1,163 @@
+/* PROTOCOL 17 — animations */
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes trail-fade {
+  0% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes micro-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  35% {
+    transform: translate(1px, -1px);
+  }
+  70% {
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes meter-twitch {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.35;
+  }
+  55% {
+    opacity: 1;
+  }
+}
+
+@keyframes dirty-pulse {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.16;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker-dim {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0.72;
+  }
+  12% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0.85;
+  }
+  64% {
+    opacity: 1;
+  }
+}
+
+@keyframes letter-jitter {
+  0%,
+  100% {
+    letter-spacing: inherit;
+  }
+  50% {
+    letter-spacing: 0.2em;
+  }
+}
+
+@keyframes btn-drift {
+  0% {
+    transform: translate(var(--btn-x, 0px), var(--btn-y, 0px));
+  }
+  100% {
+    transform: translate(var(--btn-x, 0px), var(--btn-y, 0px));
+  }
+}
+
+.anim-micro-shift {
+  animation: micro-shift 260ms steps(3) 1;
+}
+
+.anim-flicker {
+  animation: flicker-dim 5s linear 1;
+}
+
+.anim-meter-twitch {
+  animation: meter-twitch 420ms steps(4) 1;
+}
+
+/* reduced motion: kill everything dangerous */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  body.decay-chaos,
+  body.decay-3,
+  body.decay-2,
+  body.decay-1 {
+    --offset-x: 0px;
+    --offset-y: 0px;
+    --rotation: 0deg;
+  }
+
+  body.slicing .frame,
+  body.slicing-shift .frame {
+    clip-path: none;
+  }
+}
+
+/* low intensity mode */
+body.low-intensity #grain {
+  opacity: 0.02;
+}
+
+body.low-intensity #scanlines {
+  opacity: 0.06;
+}
+
+body.low-intensity,
+body.low-intensity .frame {
+  --offset-x: 0px !important;
+  --offset-y: 0px !important;
+  --rotation: 0deg !important;
+}
+
+body.low-intensity .frame {
+  transform: none !important;
+  clip-path: none !important;
+}
+
+body.low-intensity #flash-frame {
+  display: none;
+}

@@ -1,0 +1,74 @@
+/* PROTOCOL 17 — typography */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(34px, 6vw, 72px);
+  line-height: 1.04;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.micro {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dimmed {
+  color: var(--muted);
+}
+
+.dirty {
+  color: var(--dirty);
+}
+
+/* deliberate uneven tracking used by the corruption stage */
+.broken-tracking {
+  letter-spacing: 0.19em !important;
+  word-spacing: 0.34em;
+}
+
+.duplicated {
+  position: relative;
+}
+
+.duplicated::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  color: inherit;
+  opacity: 0.55;
+}
+
+/* text that lags one character behind (mid stages) */
+.lagging {
+  transition: opacity 120ms linear;
+}
